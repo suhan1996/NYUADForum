@@ -1,0 +1,126 @@
+ul{
+    margin: auto;
+    padding: 10px;
+
+    width: 50%;
+    text-align: left;
+    font-family: Verdana;
+    font-size: x-large;
+}
+
+#menu_wrap{
+    text-align: center ;
+
+    margin: auto;
+
+    width: 49%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button{
+
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    margin: auto;
+
+    width: 49%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+p,h1 {
+    margin: auto;
+    width: 60%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center ;
+
+}
+
+#count,.button{
+    border: 1px solid green;
+    padding: 2px;
+
+}
+
+
+/*.duiqi{*/
+    /*margin: 0.5vmax;*/
+/*}*/
+/** {*/
+    /*box-sizing: border-box;*/
+/*}*/
+/*#count {*/
+    /*background: #9F0;*/
+    /*width: 10%;*/
+    /*height: 33px;*/
+    /*text-align: center;*/
+    /*line-height: 33px;*/
+    /*font-size: 21px;*/
+    /*margin: 0;*/
+    /*border: 1px solid green;*/
+    /*border-radius: 1px;*/
+/*}*/
+
+/*.button {*/
+    /*background: #09F;*/
+    /*width: 1.5%;*/
+    /*height: 17px;*/
+    /*text-align: center;*/
+    /*line-height: 17px;*/
+    /*font-size: 11px;*/
+    /*border: 1px solid blue;*/
+    /*border-radius: 1px;*/
+/*}*/
+
+/*.button, #count {*/
+    /*float: left;*/
+/*}*/
+
+/*#minus {*/
+    /*margin: 8px 2.5% 0 37.5%;*/
+/*}*/
+
+/*#plus {*/
+    /*margin: 8px 37.5% 0 2.5%;*/
+/*}*/
