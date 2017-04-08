@@ -106,11 +106,12 @@ app.post('/post', function(req, res) {
     console.log("test1");
     //myName = req.body.myName;
     const linkone = new Link({
-        url: req.body.url,
+       // url: req.body.url,
         title: req.body.title,
         vote: 0
        // comments: [Comment]
     });
+    console.log('linkone',linkone);
     linkone.save((err) => {
         if(err) {
             console.log(err);

@@ -9,7 +9,7 @@ const Comment = new mongoose.Schema({
     user: String
 });
 const Link = new mongoose.Schema({
-    url: String,
+    //url: String,
     title: String,
     comment: [Comment],
     vote: Number
@@ -20,12 +20,14 @@ const Upvote = new mongoose.Schema({
 })
 
 //URLSlugs('<user>');
-Link.plugin(URLSlugs('title'));
+Link.plugin(URLSlugs("_id"));
 mongoose.model('Comment', Comment);
 mongoose.model('Link', Link);
 mongoose.Promise = global.Promise;
 
+//mongoose.connect('mongodb://localhost/nyushit');
 mongoose.connect('mongodb://suhan1996:112496@ds155820.mlab.com:55820/heroku_fbpxtp00');
+
 //
 //if (process.env.NODE_ENV === 'PRODUCTION') {
 //    // if we're in PRODUCTION mode, then read the configration from a file

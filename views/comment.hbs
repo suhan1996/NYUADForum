@@ -1,19 +1,23 @@
+
+<div>
 <p>{{the_post.title}} <a href="{{the_post.url}}">{{the_post.url}}</a> </p>
 <p>Last Comment: {{last_comment}} {{last_name}}</p>
 
 {{#each the_post.comment}}
+
     <p>{{this.text}} {{this.user}}</p>
+
 {{/each}}
 
-
+</div>
 
 <div>
     <form action="/comment" method="POST" >
 
         <label for="url">Comment</label>
-        <input type="text" id="url" name="comment" placeholder=" Comment ">
-        <label for="title">Name</label>
-        <input type="text" id="name" name="name" placeholder=" Name">
+        <textarea type="text" id="url" name="comment" placeholder=" Comment "></textarea>
+        <!--<label for="title">Name</label>-->
+        <!--<input type="text" id="name" name="name" placeholder=" Name">-->
 
 
         <!--<label for="fname">foooooodz</label>-->
