@@ -26,7 +26,7 @@ mongoose.model('Link', Link);
 mongoose.Promise = global.Promise;
 
 //mongoose.connect('mongodb://localhost/nyushit');
-mongoose.connect('mongodb://password123456:123456@ds139124.mlab.com:39124/heroku_cftw89xp');
+mongoose.connect('mongodb://passwordis123456:123456@ds139124.mlab.com:39124/heroku_cftw89xp');
 //mongodb://<dbuser>:<dbpassword>@ds139124.mlab.com:39124/heroku_cftw89xp
 //
 //if (process.env.NODE_ENV === 'PRODUCTION') {
