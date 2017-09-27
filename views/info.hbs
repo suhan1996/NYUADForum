@@ -27,7 +27,7 @@ lights & AC
 
     <h3> On average, how many large  water bottles do you use per day? (0-10) </h3>
     <input type="range" min="0" max="10" value="0" class="slider" id="plasticRange">
-    <p>When you use <b><span id="demo">  </span></b> bottles per day, you use <span id = "demo"> </span> tonnes of plastic per year.</p>
+    <p>When you use <b><span id="demo">  </span></b> bottles per day, you use <span id = "demo_0"> </span> kilograms of plastic per year.</p>
 
     <h3> On average, how many sheets of A4 paper do you print per day? </h3>
     <input type="range" min="0" max="10" value="0" class="slider" id="paperRange">
@@ -45,8 +45,9 @@ lights & AC
     var output = document.getElementById("demo");
     output.innerHTML = slider.value;
     slider.oninput = function() {
-        result = this.value * 5;
-        output.innerHTML = result; //ADJUST ACCORDINGLY!!!
+        var result = this.value * 1;
+        output.innerHTML = this.value * 1; //ADJUST ACCORDINGLY!!!
+        document.querySelector('#demo_0').innerHTML = parseInt(18.9*365*result)/1000;
     }
     var slider2 = document.getElementById("paperRange");
     var output2 = document.getElementById("demo2");
