@@ -1,6 +1,29 @@
+<style>
+    button{
+        border-radius: 0;
+        background-color: gainsboro;
+    }
+    .post {
+        border-radius: 0;
 
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-weight: 100;
+        font-size:x-large;
+        text-decoration: none;
+        background: white;
+        width: 95%;
+        margin-left: 1vmax;
+        margin-right: 0vmax;
+        /*height: 30vmax;*/
+        padding: 1vmax;
+        position: relative;
+        overflow: hidden;
+        /*margin-bottom: 3vmax;*/
+    }
+
+</style>
 <div>
-<p>{{the_post.title}} <a href="{{the_post.url}}">{{the_post.url}}</a> </p>
+<p class="post">{{the_post.title}} <a href="{{the_post.url}}">{{the_post.url}}</a> </p>
 <!--<p>Last Comment: {{last_comment}} {{last_name}}</p>-->
 
 {{#each the_post.comment}}
@@ -22,8 +45,8 @@
 
         <!--<label for="fname">foooooodz</label>-->
 
-        <input type="submit" value="Poo">
-        <input type="checkbox" name = "vote" value="Upvote"> Upvote</br>
+        <input type="submit" value="Post">
+        <input type="checkbox" name = "vote" value="Upvote">I think that's helpful</br>
 
         <input type="hidden" name="hidden" value={{the_post.slug}}>
 
