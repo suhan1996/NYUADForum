@@ -27,11 +27,13 @@ lights & AC
 
     <h3> On average, how many large  water bottles do you use per day? (0-10) </h3>
     <input type="range" min="0" max="10" value="0" class="slider" id="plasticRange">
+    <p>In 2015, our campus produced 1,300 kilograms of plastic waste.</p>
     <p>When you use <b><span id="demo">  </span></b> bottles per day, you use <span id = "demo_0"> </span> kilograms of plastic per year.</p>
 
     <h3> On average, how many sheets of A4 paper do you print per day? </h3>
     <input type="range" min="0" max="10" value="0" class="slider" id="paperRange">
-    <p>Per year, you have used up the equivalent of <b><span id="demo2">  </span></b> trees.</p>
+    <p>3650 liters of water go into manufacturing the paper you print each year. In 2015, our campus produced 985,986 kilograms of paper/cardboard waste.</p>
+    <p>Per year, you have used up the equivalent of <b><span id="demo2">  </span></b> trees. <span id="demo_2">  </span>liters of water go into manufacturing the paper you print per year.</p>
 
     <h3> On average, how many plates of food do you waste per week? </h3>
     <input type="range" min="0" max="10" value="0" class="slider" id="foodRange">
@@ -54,6 +56,8 @@ lights & AC
     output2.innerHTML = slider2.value;
     slider2.oninput = function() {
         output2.innerHTML = this.value;
+        document.querySelector('#demo_2').innerHTML = parseInt(10*365*this.value)+" ";
+
     }
     var slider3 = document.getElementById("foodRange");
     var output3 = document.getElementById("demo3");
