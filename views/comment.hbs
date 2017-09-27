@@ -1,5 +1,7 @@
 <style>
-    button{
+    .button{
+        background-color: gainsboro;
+        width: 2vmax;
         border-radius: 0;
         background-color: gainsboro;
     }
@@ -28,7 +30,7 @@
 
 {{#each the_post.comment}}
 
-    <p>{{this.text}} {{this.user}}</p>
+    <p class="post">{{this.text}} {{this.user}}</p>
 
 {{/each}}
 
@@ -37,16 +39,15 @@
 <div>
     <form action="/comment" method="POST" >
 
-        <label for="url">Comment</label>
         <textarea type="text" id="url" name="comment" placeholder=" Comment "></textarea>
         <!--<label for="title">Name</label>-->
         <!--<input type="text" id="name" name="name" placeholder=" Name">-->
 
 
         <!--<label for="fname">foooooodz</label>-->
-
-        <input type="submit" value="Post">
         <input type="checkbox" name = "vote" value="Upvote">I think that's helpful</br>
+
+        <input class="button" type="submit" value="Post">
 
         <input type="hidden" name="hidden" value={{the_post.slug}}>
 
