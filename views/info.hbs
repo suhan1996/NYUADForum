@@ -1,0 +1,124 @@
+<!--<!DOCTYPE html>-->
+
+<!--<html>-->
+<head>
+
+    <h1> NYUAD's Waste Calculator </h1>
+
+
+
+    <!--<h3 id="menu"><i><a href="public/contribute.html">Contribute</a></i></h3>-->
+
+
+</head>
+
+<body>
+
+<!--
+Ecoherence suggestions:
+water bottles
+paper
+takeaway container
+starbucks cups
+food waste (percentage of plate)
+lights & AC
+-->
+<div id="slidecontainer">
+
+    <h3> On average, how many large  water bottles do you use per day? (0-10) </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="plasticRange">
+    <p>When you use <b><span id="demo">  </span></b> bottles per day, you use <span id = "demo"> </span> tonnes of plastic per year.</p>
+
+    <h3> On average, how many sheets of A4 paper do you print per day? </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="paperRange">
+    <p>Per year, you have used up the equivalent of <b><span id="demo2">  </span></b> trees.</p>
+
+    <h3> On average, how many plates of food do you waste per week? </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="foodRange">
+    <p>You have wasted <b><span id="demo3">  </span></b> tonnes of food. </p>
+</div>
+
+
+
+<script>
+    var slider = document.getElementById("plasticRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+        result = this.value * 5;
+        output.innerHTML = result; //ADJUST ACCORDINGLY!!!
+    }
+    var slider2 = document.getElementById("paperRange");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
+    slider2.oninput = function() {
+        output2.innerHTML = this.value;
+    }
+    var slider3 = document.getElementById("foodRange");
+    var output3 = document.getElementById("demo3");
+    output3.innerHTML = slider3.value;
+    slider3.oninput = function() {
+        output3.innerHTML = this.value;
+    }
+</script>
+<style>
+    body
+    {
+        background: rgb(240,240,250);
+        font-size: small;
+    }
+    h1 {
+        text-align: center;
+        font-family: Arial;
+    }
+    #menu {
+        font-family: Arial;
+        text-align: center;
+    }
+    h3{
+        font-size: large;
+    }
+    #slidecontainer {
+        width: 90%;
+        /*width: 50%;  Width of the outside container */
+        /*margin-right: 60px;*/
+        background: rgb(240,240,250);
+
+        /*margin-left: 25%;*/
+        /*margin-right: 20%;*/
+        font-family: Arial;
+    }
+    /* The slider itself */
+    .slider {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 100%; /* Full-width */
+        height: 30px; /* Specified height */
+        background: #d3d3d3; /* Grey background */
+
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+    /* Mouse-over effects */
+    .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+    }
+    /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 30px; /* Set a specific slider handle width */
+        height: 30px; /* Slider handle height */
+        background: rebeccapurple; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }
+    .slider::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #4CAF50; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }</style>
+</body>
+<!--</html>-->

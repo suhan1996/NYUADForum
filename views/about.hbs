@@ -1,0 +1,226 @@
+<style>
+    *, *:before, *:after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        font-size: 62%;
+    }
+    body {
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+        /*background: #bde2f6;*/
+    }
+    h1{
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        color:rebeccapurple;
+    }
+    p{
+        color:grey;
+    }
+    .device {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -15.5rem;
+        margin-top: -20rem;
+        width: 31rem;
+        background: #ffffff;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        /*-webkit-box-shadow: -1px 24px 41px -6px rgba(0,0,0,0.27);*/
+        /*-moz-box-shadow: -1px 24px 41px -6px rgba(0,0,0,0.27);*/
+        /*box-shadow: -1px 24px 41px -6px rgba(0,0,0,0.27);*/
+    }
+
+    /* start section css */
+
+    /* first div */
+    .planet {
+        margin: 40px;
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background-image: url("https://res.cloudinary.com/lenadi07/image/upload/v1468859826/forCodePen/mobileSlider/firstSlider/background.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left top;
+    }
+    img.main_pictures {
+        width: 40%;
+        margin-left: 30px;
+    }
+
+
+    .orbit_1 {
+        position: absolute;
+        top: 26px;
+        left: 33px;
+        width: 230px;
+        height: auto;
+        z-index: 2;
+    }
+    .orbit_2 {
+        position: absolute;
+        top: 23px;
+        right: 14px;
+        width: 240px;
+        height: 200px;
+        z-index: 1;
+    }
+    img.pictures {
+        width: 90%;
+    }
+    .animation {
+        animation: orbit 10s ease-in infinite;
+
+    }                                               /* animation orbit 1 */
+    @-webkit-keyframes orbit {
+        0% { -webkit-transform: rotate(0deg); }
+        40% {-webkit-transform: rotate(180deg); }
+        50% {-webkit-transform: rotate(80deg); }
+        70% {-webkit-transform: rotate(180deg); }
+        100% { -webkit-transform: rotate(0deg); }
+    }
+
+    @keyframes orbit {
+        0% { transform: rotate(0deg); }
+        40% {transform: rotate(180deg); }
+        50% {transform: rotate(80deg); }
+        70% {transform: rotate(180deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    .animation_2 {
+        animation: orbit_2 3s ease-in-out infinite;
+    }
+    /*animation orbit 2 */
+    @keyframes orbit_2 {
+        0% { transform: rotate(0deg); }
+        50% {transform: rotate(-20deg); }
+        100% {transform: rotate(0deg); }
+    }
+
+    @-webkit-keyframes orbit_2 {
+        0% {-webkit-transform: rotate(0deg); }
+        50% {-webkit-transform: rotate(-20deg); }
+        100% {-webkit-transform: rotate(0deg); }
+    }
+
+    .animation_3 {
+        animation: orbit_3 3s ease-out infinite;
+    }
+    /*animation orbit slide 2 */
+    @keyframes orbit_3 {
+        0% { transform: rotate(0deg); }
+        50% {transform: rotate(-20deg); }
+        100% {transform: rotate(0deg); }
+    }
+
+    @-webkit-keyframes orbit_3 {
+        0% {-webkit-transform: rotate(0deg); }
+        50% {-webkit-transform: rotate(-20deg); }
+        100% {-webkit-transform: rotate(0deg); }
+    }
+    /* MID */
+    .mid {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 9rem;
+        display: inline-block;
+    }
+    .mid h1 {
+        text-align: center;
+        color:rebeccapurple;
+        font-size: 18px;
+        text-align: center;
+    }
+    .mid p {
+        padding: 30px;
+        text-align: center;
+        font-size: 14px;
+        color:grey;
+    }
+    .paper_img {
+        z-index: 1;
+    }
+    .lines {
+        animation: lines_moves 1.5s ease-in-out infinite;
+        z-index: 2;
+    }
+    @keyframes lines_moves {
+        0% {left: 64px; right: 0; }
+        50% { left: 69px; right: 25px; }
+        100% { left: 64px; right: 0; }
+    }
+
+    /* BTM */
+    .btm {
+        position: relative;
+        height: 10rem;
+    }
+    button {
+        margin-top: 44px;
+        background-color: #2196d4;
+        color: #ffffff;
+        text-align: center;
+        width: 100%;
+        border: none;
+        height: auto;
+        box-sizing: border-box;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        font-size: 18px;
+    }
+
+</style>
+<div class="device"> <!--all window-->
+    <div class="owl-carousel" id="owl-demo">
+
+        <div class="item">
+            <div class="planet">
+                <img class="main_pictures" src="https://res.cloudinary.com/lenadi07/image/upload/v1468859826/forCodePen/mobileSlider/firstSlider/main.png" alt="" />
+            </div>
+            <div class="orbit_1 animation">
+                <img class="pictures" src="https://res.cloudinary.com/lenadi07/image/upload/v1468859826/forCodePen/mobileSlider/firstSlider/orbit_1.png" alt="" />
+            </div>
+            <div class="orbit_2">
+                <img class="pictures animation_2" src="https://res.cloudinary.com/lenadi07/image/upload/v1468859826/forCodePen/mobileSlider/firstSlider/orbit_2.png" alt="" />
+            </div>
+            <div class="mid">
+                <h1>NYUAD Ecoherence Forum Project</h1>
+                <p>Group: Ali Alia and Han Su(苏汉)</p>
+                <br>
+                <p> </p>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+<script>
+    $(document).ready(function() {
+
+        var owl = $("owl-demo");
+
+        $("#owl-demo").owlCarousel({
+
+            navigation : false, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem: true
+
+        });
+        $(".next").click(function(){
+            $("#owl-demo").trigger("owl.next");
+        })
+    });
+</script>

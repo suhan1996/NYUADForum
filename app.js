@@ -32,6 +32,7 @@ const Link = mongoose.model('Link');
 
 
 // start
+
 app.get('/', function(req, res) {
     //res.render('templating-arrays', {'luckyNumbers':[42, 7, 78, 3, 5]});
     //a form to add a link
@@ -62,7 +63,12 @@ app.get('/', function(req, res) {
     });
 
 });
-
+app.get('/info',function (req,res) {
+    res.render('info');
+})
+app.get('/about',function (req,res) {
+    res.render('about');
+})
 app.get('/:var1',function(req, res){
     "use strict";
     let slg = req.params.var1;
