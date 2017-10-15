@@ -69,6 +69,9 @@ app.get('/info',function (req,res) {
 app.get('/about',function (req,res) {
     res.render('about');
 })
+app.get('/start',function (req,res) {
+    res.render('info1');
+})
 app.get('/:var1',function(req, res){
     "use strict";
     let slg = req.params.var1;
