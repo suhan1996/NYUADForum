@@ -7,15 +7,18 @@
 </head>
 <style>
     .navbar {
-        text-align: center;
+        padding-bottom: 5vmax ;
+
+        /*text-align: center;*/
         font-family: Arial, sans-serif;
         border-bottom: 1px solid rgba(0, 0, 0, 0.6);
     }
 
     .navbar li {
-
+        float: right;
         display: inline-block;
         margin: 0 5px;
+
     }
 
     .navbar a:hover{
@@ -50,11 +53,23 @@
 
 
     .navbar a {
+        right: 0px;
+        float: right;
         display: block;
         color: grey;
         padding: 12px 10px;
         text-decoration: none;
+        margin-bottom: 10px ;
+
         font-weight: bold;
+    }
+    #ws{
+        font-weight: bold;
+
+        float: left;
+    }
+    #wsi{
+        height: 60px;
     }
     .foot{
         font-weight: lighter;
@@ -68,6 +83,8 @@
 </style>
 <body>
 <ul class="navbar">
+    
+    <li id="ws"><img id="wsi" src="img/wst1.png"></li>
     <li><a href="/">Forum</a></li>
     <li><a href="/info">Interactive Calculator</a></li>
     <li><a href="/about">About Us</a></li>
