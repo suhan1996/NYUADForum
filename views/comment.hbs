@@ -22,11 +22,12 @@
         overflow: hidden;
         /*margin-bottom: 3vmax;*/
     }
-    #helpful{
+    #helpful, span{
         font-family: "Open Sans", Helvetica, Arial, sans-serif;
         margin-left: 1vmax;
         font-size:x-large;
     }
+
 </style>
 <div>
 <p class="post">{{the_post.title}} <a href="{{the_post.url}}">{{the_post.url}}</a> </p>
@@ -49,7 +50,9 @@
 
 
         <!--<label for="fname">foooooodz</label>-->
-        <input id="helpful" type="checkbox" name = "vote" value="Upvote">I think that's helpful</br>
+        <br>
+        <input id="helpful" type="checkbox" name = "vote" value="Upvote"><span>I think that's helpful</span>
+        </br>
 
         <input class="button" type="submit" value="Post">
 
