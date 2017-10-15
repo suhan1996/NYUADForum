@@ -3,7 +3,7 @@
         background-color: gainsboro;
         width: 2vmax;
         border-radius: 0;
-        background-color: gainsboro;
+        margin-left: 1vmax;
     }
     textarea, .post {
         border-radius: 0;
@@ -22,7 +22,11 @@
         overflow: hidden;
         /*margin-bottom: 3vmax;*/
     }
-
+    #helpful{
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        margin-left: 1vmax;
+        font-size:x-large;
+    }
 </style>
 <div>
 <p class="post">{{the_post.title}} <a href="{{the_post.url}}">{{the_post.url}}</a> </p>
@@ -45,7 +49,7 @@
 
 
         <!--<label for="fname">foooooodz</label>-->
-        <input class="post" type="checkbox" name = "vote" value="Upvote">I think that's helpful</br>
+        <input id="helpful" type="checkbox" name = "vote" value="Upvote">I think that's helpful</br>
 
         <input class="button" type="submit" value="Post">
 
