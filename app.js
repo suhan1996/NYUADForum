@@ -33,7 +33,7 @@ const Link = mongoose.model('Link');
 
 // start
 
-app.get('/', function(req, res) {
+app.get('/forum', function(req, res) {
     //res.render('templating-arrays', {'luckyNumbers':[42, 7, 78, 3, 5]});
     //a form to add a link
     //a list of all of the links added so far
@@ -66,6 +66,30 @@ app.get('/', function(req, res) {
 app.get('/info',function (req,res) {
     res.render('info');
 })
+app.get('/',function (req,res) {
+    Link.find({}, (err, new_post) => {
+        console.log(err);
+        console.log(new_post);
+        // render goes in callback
+        // because it has to wait for find to finish
+
+        let ary = [], post_sorted = [];
+        new_post.forEach(function(x){ary.push(x.vote)});
+        ary = ary.sort().reverse();
+        let set1 = new Set(ary);
+        console.log("arrrry", ary)
+        set1.forEach(function(x){
+            "use strict";
+            new_post.forEach(function(e){
+                if (e.vote == x) {
+                    post_sorted.push(e)
+                }}
+            )
+        })
+        console.log("post sorted",post_sorted);
+        res.render('forum', {new_post: post_sorted});
+
+    });})
 app.get('/about',function (req,res) {
     res.render('about');
 })
@@ -90,10 +114,13 @@ app.get('/:var1',function(req, res){
 })
 
 app.post('/comment',function(req, res){
+
     Link.findOne({slug:req.body.hidden}, function(err, the_link) {
         // we can call push on toppings!
+        //the_link.comment.push({user: req.body.name, text:"Posted on "+ new Date().toLocaleString()+": "+" "+req.body.comment});
+        the_link.comment.push({time:new Date().toLocaleString(), text:req.body.comment});
         console.log(req.body.name,req.body.comment);
-        the_link.comment.push({user: req.body.name, text: req.body.comment});
+        console.log("the_linkcommen",the_link.comment);
         if(req.body.vote != undefined){
             console.log("upvote");
             console.log("the link", the_link);
@@ -112,12 +139,13 @@ app.post('/comment',function(req, res){
 })
 
 app.post('/post', function(req, res) {
-    console.log("test1");
-    //myName = req.body.myName;
+    var time =     new Date().toLocaleString();
+    console.log("time1",time);
     const linkone = new Link({
        // url: req.body.url,
         title: req.body.title,
-        vote: 0
+        vote: 0,
+        time: time
        // comments: [Comment]
     });
     console.log('linkone',linkone);

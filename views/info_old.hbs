@@ -1,0 +1,129 @@
+<!--<!DOCTYPE html>-->
+
+<!--<html>-->
+<head>
+
+    <h1> NYUAD's Waste Calculator </h1>
+
+
+
+    <!--<h3 id="menu"><i><a href="public/contribute.html">Contribute</a></i></h3>-->
+
+
+</head>
+
+<body>
+
+<!--
+Ecoherence suggestions:
+water bottles
+paper
+takeaway container
+starbucks cups
+food waste (percentage of plate)
+lights & AC
+-->
+<div id="slidecontainer">
+
+    <h3> On average, how many large  water bottles do you use per day? (0-10) </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="plasticRange">
+    <p>In 2015, our campus produced 1,300 kilograms of plastic waste.</p>
+    <p>When you use <b><span id="demo">  </span></b> bottles per day, you use <span id = "demo_0"> </span> kilograms of plastic per year.</p>
+
+    <h3> On average, how many sheets of A4 paper do you print per day? </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="paperRange">
+    <p>3650 liters of water go into manufacturing the paper you print each year. In 2015, our campus produced 985,986 kilograms of paper/cardboard waste.</p>
+    <p>Per year, you have used up the equivalent of <b><span id="demo2">  </span></b> trees. <span id="demo_2">  </span>liters of water go into manufacturing the paper you print per year.</p>
+
+    <h3> On average, how many plates of food do you waste per week? </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="foodRange">
+    <p>You have wasted <b><span id="demo3">  </span></b> tonnes of food. </p>
+</div>
+
+
+
+<script>
+    var slider = document.getElementById("plasticRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+        var result = this.value * 1;
+        output.innerHTML = this.value * 1; //ADJUST ACCORDINGLY!!!
+        document.querySelector('#demo_0').innerHTML = parseInt(18.9*365*result)/1000;
+    }
+    var slider2 = document.getElementById("paperRange");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
+    slider2.oninput = function() {
+        output2.innerHTML = this.value;
+        document.querySelector('#demo_2').innerHTML = parseInt(10*365*this.value)+" ";
+
+    }
+    var slider3 = document.getElementById("foodRange");
+    var output3 = document.getElementById("demo3");
+    output3.innerHTML = slider3.value;
+    slider3.oninput = function() {
+        output3.innerHTML = this.value;
+    }
+</script>
+<style>
+    body
+    {
+        background: rgb(240,240,250);
+        font-size: small;
+    }
+    h1 {
+        text-align: center;
+        font-family: Arial;
+    }
+    #menu {
+        font-family: Arial;
+        text-align: center;
+    }
+    h3{
+        font-size: large;
+    }
+    #slidecontainer {
+        width: 90%;
+        /*width: 50%;  Width of the outside container */
+        /*margin-right: 60px;*/
+        background: rgb(240,240,250);
+
+        /*margin-left: 25%;*/
+        /*margin-right: 20%;*/
+        font-family: Arial;
+    }
+    /* The slider itself */
+    .slider {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 100%; /* Full-width */
+        height: 30px; /* Specified height */
+        background: #d3d3d3; /* Grey background */
+
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+    /* Mouse-over effects */
+    .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+    }
+    /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 30px; /* Set a specific slider handle width */
+        height: 30px; /* Slider handle height */
+        background: rebeccapurple; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }
+    .slider::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #4CAF50; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }</style>
+</body>
+<!--</html>-->

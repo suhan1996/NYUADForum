@@ -6,13 +6,15 @@ const URLSlugs = require('mongoose-url-slugs');
 // my schema goes here!
 const Comment = new mongoose.Schema({
     text: String,
-    user: String
+    user: String,
+    time:String
 });
 const Link = new mongoose.Schema({
     //url: String,
     title: String,
     comment: [Comment],
-    vote: Number
+    vote: Number,
+    time: String
 });
 
 const Upvote = new mongoose.Schema({

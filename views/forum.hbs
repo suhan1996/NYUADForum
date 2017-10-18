@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style1.css" />
+    <script src="../js/modernizr.custom.js"></script>
+</head>
+<style>
+    .navbar{
+        background-color: #1295B8;
+    }
+    .navbar a {
+        /*color:lavender;*/
+
+    }
+    .grid_post{
+        width: 100%;
+        border: none;
+
+    }
+    .grid_post:hover{
+        cursor: cell;
+        border: none;
+    }
+    #grdpost:hover{
+        border: none;
+
+    }
+    #submit{
+        margin-top: 1vmax;
+        background-color: white;
+    }
+    #submit:hover{
+        border: 1px solid #1295B8;
+    }
+    .txa{
+        font-weight: 100;
+        font-size: large;
+    }
+    .grid__item {
+
+    }
+
+    .grid_post::before {
+        top: 5px;
+        right: 5px;
+        bottom: 5px;
+        left: 5px;
+        border: 1px solid rgba(74, 74, 74, 0.075);
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+    }
+    .category1{
+
+        margin-bottom: 0.5vmax;
+    }
+</style>
+<body>
+
+<div class="container">
+
+
+    <div id="theGrid" class="main">
+        <section class="grid">
+
+            <!--<header class="top-bar">-->
+            <!--<h2 class="top-bar__headline">Latest articles</h2>-->
+            <!--<div class="filter">-->
+            <!--<span>Filter by:</span>-->
+            <!--<span class="dropdown">Popular</span>-->
+            <!--</div>-->
+            <!--</header>-->
+            <a class="grid__item grid_post" id="grdpost" href="#">
+                <h2 class="title title--preview">Post You Thought</h2>
+                <div class="loader"></div>
+                <span class="category category1">Communication, Understanding, Sharing for a better community</span>
+                <div class="meta meta--preview">
+
+                </div>
+                <div class="post">
+                    <form action="/post" method="POST" >
+                        <!--<label for="url">URL</label>-->
+                        <!--<input type="text" id="url" name="url" placeholder=" Url ">-->
+                        <label for="title"></label>
+
+                        <textarea class="txa" type="text" id="title" name="title" placeholder="Feel free to add topics here"></textarea>
+
+                        <!--<label for="fname">foooooodz</label>-->
+
+                        <button id="submit" type="submit" value="Poo">Add Topic</button>
+                    </form>
+                </div>
+            </a>
+            <!--<a class="grid__item" href="#">-->
+                <!--<h2 class="title title--preview">加州诗三首</h2>-->
+                <!--<div class="loader"></div>-->
+                <!--<span class="category">Three poems of California</span>-->
+                <!--<div class="meta meta--preview">-->
+
+                    <!--<span class="meta__date"><i class="fa date"></i>April 2017</span>-->
+                    <!--&lt;!&ndash;<span class="meta__reading-time"><i class="fa city"></i> 5 min read</span>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<a class="grid__item" href="#">-->
+                <!--<h2 class="title title--preview">纽约·春</h2>-->
+                <!--<div class="loader"></div>-->
+                <!--<span class="category">New York Spring</span>-->
+                <!--<div class="meta meta--preview">-->
+
+                    <!--<span class="meta__date"><i class="fa date"></i>Spring 2017</span>-->
+                    <!--&lt;!&ndash;<span class="meta__reading-time"><i class="fa city"></i> 2 min read</span>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<a class="grid__item" href="#">-->
+                <!--<h2 class="title title--preview">高铁·校园日</h2>-->
+                <!--<div class="loader"></div>-->
+                <!--<span class="category">Writings during NYUShanghai's Candidate Weekend</span>-->
+                <!--<div class="meta meta--preview">-->
+
+                    <!--<span class="meta__date"><i class="fa date"></i> March 2014</span>-->
+                    <!--&lt;!&ndash;<span class="meta__reading-time"><i class="fa city"></i> 2 min read</span>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</a>-->
+            {{#each new_post}}
+                <!--<div class="post">-->
+                    <!--<p><a href="https://nyuadforum.herokuapp.com/{{this.slug}}"> {{this.title}}</a></p>-->
+                    <!--<a href="http://localhost:8888/{{this.slug}}"> <button>Reply</button> </a>-->
+                    <!--<button > Useful: {{this.vote}}</button>-->
+
+
+                <a class="grid__item1 grid__item" href="http://localhost:8888/{{this.slug}}">
+                    <!--<a class="grid__item1 grid__item" href="https://nyuadforum.herokuapp.com/{{this.slug}}">-->
+                        <h2 class="title title--preview">{{this.title}}</h2>
+                        <div class="loader"></div>
+                        <span class="category">Posted on: {{this.time}}</span>
+                        <div class="meta meta--preview">
+
+                            <span class="meta__date"><i class="fa date"></i>{{this.vote}} people find this helpful</span>
+                            <!--<span class="meta__reading-time"><i class="fa city"></i> 2 min read</span>-->
+                        </div>
+                    </a>
+
+
+
+
+                <!--</div>-->
+            {{/each}}
+        </section>
+    </div>
+</div><!-- /container -->
+<script src="js/classie.js"></script>
+<script src="js/main.js"></script>
+
+
+
+</body>
+<script>
+    console.log("in hbs", {{this.vote}});
+    this.vote = this.vote+1;
+    console.log("in hbs again", {{this.vote}});
+    $('.slider').each(function() {
+        var $this = $(this);
+        var $group = $this.find('.slide_group');
+        var $slides = $this.find('.slide');
+        var bulletArray = [];
+        var currentIndex = 0;
+        var timeout;
+
+        function move(newIndex) {
+            var animateLeft, slideLeft;
+
+            advance();
+
+            if ($group.is(':animated') || currentIndex === newIndex) {
+                return;
+            }
+
+            bulletArray[currentIndex].removeClass('active');
+            bulletArray[newIndex].addClass('active');
+
+            if (newIndex > currentIndex) {
+                slideLeft = '100%';
+                animateLeft = '-100%';
+            } else {
+                slideLeft = '-100%';
+                animateLeft = '100%';
+            }
+
+            $slides.eq(newIndex).css({
+                display: 'block',
+                left: slideLeft
+            });
+            $group.animate({
+                left: animateLeft
+            }, function() {
+                $slides.eq(currentIndex).css({
+                    display: 'none'
+                });
+                $slides.eq(newIndex).css({
+                    left: 0
+                });
+                $group.css({
+                    left: 0
+                });
+                currentIndex = newIndex;
+            });
+        }
+
+        function advance() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                if (currentIndex < ($slides.length - 1)) {
+                    move(currentIndex + 1);
+                } else {
+                    move(0);
+                }
+            }, 4000);
+        }
+
+        $('.next_btn').on('click', function() {
+            if (currentIndex < ($slides.length - 1)) {
+                move(currentIndex + 1);
+            } else {
+                move(0);
+            }
+        });
+
+        $('.previous_btn').on('click', function() {
+            if (currentIndex !== 0) {
+                move(currentIndex - 1);
+            } else {
+                move(3);
+            }
+        });
+
+        $.each($slides, function(index) {
+            var $button = $('<a class="slide_btn">&bull;</a>');
+
+            if (index === currentIndex) {
+                $button.addClass('active');
+            }
+            $button.on('click', function() {
+                move(index);
+            }).appendTo('.slide_buttons');
+            bulletArray.push($button);
+        });
+
+        advance();
+    });
+
+</script>
+</html>
