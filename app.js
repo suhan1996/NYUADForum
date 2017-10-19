@@ -121,6 +121,8 @@ app.post('/comment',function(req, res){
     Link.findOne({slug:req.body.hidden}, function(err, the_link) {
         // we can call push on toppings!
         //the_link.comment.push({user: req.body.name, text:"Posted on "+ new Date().toLocaleString()+": "+" "+req.body.comment});
+        console.log("comment",req.body.comment)
+        if((req.body.comment).length!=0){
         the_link.comment.push({time:new Date().toLocaleString(), text:req.body.comment});
         console.log(req.body.name,req.body.comment);
         console.log("the_linkcommen",the_link.comment);
@@ -138,6 +140,7 @@ app.post('/comment',function(req, res){
         req.session.comment = req.body.comment;
 
         res.redirect('/'+req.body.hidden);
+        }
     });
 })
 
