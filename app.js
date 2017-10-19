@@ -140,6 +140,8 @@ app.post('/comment',function(req, res){
         req.session.comment = req.body.comment;
 
         res.redirect('/'+req.body.hidden);
+        }else {
+            res.redirect('/'+req.body.hidden);
         }
     });
 })
