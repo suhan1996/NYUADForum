@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Tangle document</title>
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="Tangle.js"></script>
+
+    <!-- TangleKit (optional) -->
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+ <script type="text/javascript" src="ParkExample.js"></script>
+    <!-- example -->
+    <script type="text/javascript">
+
+        function setUpTangle () {
+
+            var element = document.getElementById("example");
+
+            var tangle = new Tangle(element, {
+                initialize: function () {
+                    this.bottles = 1;
+                    this.paper=1;
+                    this.food=1;
+                    this.wastePerBottle = 1095;
+                    this.wastePerPaper=3650;
+                    this.wastePerFood=840;
+                },
+                update: function () {
+                    this.waterwaste = this.bottles * this.wastePerBottle;
+                    this.paperwaste= this.paper * this.wastePerPaper;
+                    this.foodwaste = this.food * this.wastePerFood;
+                }
+            });
+        }
+
+
+
+    </script>
+</head>
+
+<body onload="setUpTangle();">
+
+    <p id="example">
+        If you use <b><span data-var="bottles" class="TKAdjustableNumber" data-min="0" data-max="10"> water bottles </span></b> per year, manufacturing your water bottles requires
+        <b><span data-var="waterwaste"></span></b> liters of water per year.
+
+<br></br>
+        If you use <b data-var="paper" class="TKAdjustableNumber" data-min="0" data-max="100"> water bottles </b> per year, manufacturing your water bottles requires  <b data-var="paperwaste"></b> liters of water per year.
+
+        <br></br>
+        If you use <b data-var="food" class="TKAdjustableNumber" data-min="0" data-max="100"> water bottles </b> per year, manufacturing your water bottles requires  <b data-var="foodwaste"></b> liters of water per year.
+
+
+    </p>
+
+</body>
+</html>
+
+

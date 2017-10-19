@@ -94,7 +94,10 @@ app.get('/about',function (req,res) {
     res.render('about');
 })
 app.get('/start',function (req,res) {
-    res.render('info1');
+    // app.set('view engine', 'html');
+    res.sendFile(path.join(__dirname+'/views/cal/finalcalc.html'));
+
+    //res.sendFile('finalcalc.html');
 })
 app.get('/:var1',function(req, res){
     "use strict";

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<!--<html>-->
+
+<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+
+
+<script src="jquery-3.2.1.js"></script>
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="Tangle.js"></script>
+
+    <!-- TangleKit (optional) -->
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="../img/wastespace.png" />
+<link rel="stylesheet" href="../css/base.css" />
+<head>
+    <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar{
+            background-color: #1295B8;
+        ;
+        }
+
+        html, body {
+            font-weight: 100;
+        }
+        body {
+            color: dimgrey;
+            font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+            /*background: #bde2f6;*/
+        }
+        .navbar {
+            background-color:rgb(135,87,170);
+            padding-bottom: 5vmax ;
+
+            /*text-align: center;*/
+            font-family: Arial, sans-serif;
+            /*border-bottom: 1px solid rgba(0, 0, 0, 0.6);*/
+        }
+
+        .navbar li {
+            float: right;
+            display: inline-block;
+            margin: 0 5px;
+
+        }
+
+
+
+        .navbar a {
+            right: 0px;
+            float: right;
+            display: block;
+            color: snow;
+            padding: 12px 10px;
+            text-decoration: none;
+            margin-bottom: 10px ;
+
+            font-weight: bold;
+        }
+        #ws{
+            position: absolute;
+            left: 1vmax;
+            top: 0;
+            font-weight: bold;
+
+            float: left;
+        }
+        #wsi{
+            height: 60px;
+        }
+        .foot{
+            font-weight: lighter;
+            font-size: small;
+            border-bottom: none;
+
+        }
+        .navbar a:hover, .navbar .active a {
+            color:white;
+        }
+        .button{
+            height: 4vmax;
+        }
+    </style>
+    <ul class="navbar">
+
+        <span id="ws"><a href="/about" ><img id="wsi" src="../img/wst2.png"></a></span>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/">Forum</a></li>
+        <li><a href="/cal/finalcalc.html">Interactive Calculator</a></li>
+
+        <!--<li><a href="#">4</a></li>-->
+        <!--<li><a href="#">5</a></li>-->
+    </ul>
+
+    <h1> NYUAD's Waste Calculator </h1>
+
+<!--CHANGE COLOR-->
+
+    <!--<h3 id="menu"><i><a href="public/contribute.html">Contribute</a></i></h3>-->
+
+
+</head>
+
+<body onload="setUpTangle();">
+
+<!--
+Ecoherence suggestions:
+water bottles
+paper
+takeaway container
+starbucks cups
+food waste (percentage of plate)
+lights & AC
+-->
+<div id="slidecontainer">
+
+<div id="waterq">
+
+<img src="water.png" alt="water bottle" style="width:40px;height:40px" class="left">
+<h2 id="title1">Question #1</h2>
+
+<div id="firstq" class="boxed">
+<!--<img src="water.png" alt="water bottle" style="width:40px;height:40px" class="left">-->
+
+
+    <h3> On average, how many large  water bottles do you use per day? (0-10)</h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="plasticRange">
+    <p class="answer"> Your answer: <b><span id="plasticinput"></span></b>.</p>
+  <!--  <p>When you use <b><span id="plasticinput">  </span></b> bottles per day, <b><span id = "plasticresult"> </span></b> liters of water are used up in manufacturing.</p>-->
+</div>
+
+<div class="nyuadfacts"><i>According to latest data, our campus produces 1,300 kilograms of plastic waste per year.</i></div>
+
+<button id="next1"><b>Next question</b></button></div>
+
+
+<div id="paperq">
+    <img id = "img2" src="paper.png" alt="paper" style="width:35px;height:35px" class="left">
+
+<h2 id="title2"> Question #2</h2>
+
+
+<div id="question2" class="boxed">
+    <h3> On average, how many sheets of A4 paper do you print per day? </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="paperRange">
+   <!-- <p>Using <b><span id="paperinput">  </span></b> sheets of paper per day requires <b><span id="paperresult">  </span></b>liters of water to go into manufacturing the paper you print per year.</p>-->
+    <p class="answer"> Your answer: <b><span id="paperinput"></span></b>.</p>
+</div>
+      
+      <div class="nyuadfacts"><i> According to latest data, our campus produced 985,986 kilograms of paper/cardboard waste per year. </i></div>
+
+     <button id="next2"><b>Next question</b></button>
+</div>
+
+<div id="foodq">
+    <img src="food.png" alt="food" style="width:35px;height:35px" class="left">
+<h2 id="title3">Question #3</h2>
+
+<div id="question3" class="boxed">
+    <h3> On average, how many plates of food do you waste per week? </h3>
+    <input type="range" min="0" max="10" value="0" class="slider" id="foodRange">
+   <!-- <p>By wasting <b><span id="foodinput">  </span></b> plates of food per week, you spent <b><span id=foodresult></span></b> dirhams on unnecessary food waste per academic year. </p>-->
+    <p class="answer"> Your answer: <b><span id="foodinput"></span></b>.</p>
+</div>
+
+
+  <div class="nyuadfacts"><i> Last May, our campus wasted <b> 62 kg </b> of food per day. If that average continues, we'll waste <b> 22,072 kg</b> of food per year! </i></div>
+   
+    <button id="next3"><b>Calculate!</b></button>
+</div>
+
+</div>
+
+<div id=results>
+
+<br></br>
+<div id="resultimg">
+<img src="water.png" alt="food" style="width:50px;height:50px" class="center">
+<img src="paper.png" alt="food" style="width:50px;height:50px" class="center">
+<img src="food.png" alt="food" style="width:50px;height:50px" class="center"></div>
+<h3> Your Waste Effect: </h3>
+<h3>Each year, your consumption requires an average of  <i id="waterwaste"><span id = "plasticresult"></span> liters of water</i> for plastic manufacturing, <i id="paperwaste"><span id = "paperresult"></span> liters of water</i> for paper manufacturing, and results in the unnecessary expenditure of <i id="foodwaste"><span id = "foodresult"></span> dirhams</i>. <br></br> ------------------------------- <br></br></h3>
+
+<!--tangle-->
+<h4> Explore!</h4>
+<p> <i>Drag the values below to see the effect our behavior has on environmental waste.</i></p>
+       <p id="example">
+        If you use <b><span data-var="bottles" class="TKAdjustableNumber" data-min="0" data-max="10"> water bottles </span></b> per year, manufacturing your water bottles requires <b><span id="waterwaste" data-var="waterwaste"> liters </span> </b>of water per year.
+
+<br></br>
+       Using <b data-var="paper" class="TKAdjustableNumber" data-min="0" data-max="100"> sheets of A4 paper </b> per year requires  <b id="paperwaste" data-var="paperwaste"> liters </b> of water per year.
+
+        <br></br>
+       For <b data-var="food" class="TKAdjustableNumber" data-min="0" data-max="100"> plate(s) </b> of food wasted per week, an average of <b id="foodwaste"data-var="foodwaste"> dirhams </b> is spent on food waste per year. 
+       <br></br>
+
+       <h4> Take Action </h4>
+You can start <a href="https://www.rethinkrecycling.com/residents/reduce/top-10-ways-reduce-waste"> reducing waste</a> <i>today</i> by: 
+<ul>
+    <li>Using the reusable takeaway container when leaving the dining hall with food.</li>
+    <li>Using a reusable water bottle instead of buying more plastic.</li>
+    <li>Going digital! Avoid printing paper when you can.</li>
+    <li>Only buy the food you need. If you have extra meal swipes or dining dirhams, consider asking if someone needs them! (or, let it go)</li>
+
+
+       <br></br><br></br>
+
+    </p>
+
+</div>
+
+</body>
+
+
+<script>
+
+
+
+    
+//buttons
+
+$("#foodq").hide();
+$("#paperq").hide();
+$("#results").hide();
+
+
+    $(document).ready(function(){
+  /*  $("#hide").click(function(){
+        $("#trial").hide();
+    });*/
+    $("#next1").click(function(){
+        $("#waterq").hide();
+
+        $("#paperq").show();
+
+        $("#next1").hide();
+    });
+
+    $("#next2").click(function(){
+         $("#paperq").hide();
+
+        $("#foodq").show();
+          $("#next2").hide();
+          
+    });
+
+    $("#next3").click(function(){
+    $("#slidecontainer").hide();
+          $("#results").show();
+
+        });  
+    });
+
+    //plastic
+    var image1=("<IMG ALIGN='center' "+"SRC='img.jpg'> ");
+    var slider = document.getElementById("plasticRange");
+    var output = document.getElementById("plasticinput");
+   
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+        var result = this.value * 1;
+        output.innerHTML = this.value * 1; //ADJUST ACCORDINGLY!!!
+        document.querySelector('#plasticresult').innerHTML = parseInt(3*365*result);
+         document.querySelector('#plasticresult2').innerHTML = parseInt(3*365*result);
+
+    
+    }
+
+  
+    //paper
+    var slider2 = document.getElementById("paperRange");
+    var output2 = document.getElementById("paperinput");
+    output2.innerHTML = slider2.value;
+    slider2.oninput = function() {
+        output2.innerHTML = this.value;
+        document.querySelector('#paperresult').innerHTML = parseInt(10*365*this.value)+" ";
+        document.querySelector('#paperresult2').innerHTML = parseInt(10*365*this.value)+" ";
+    }
+
+
+    //food
+    var slider3 = document.getElementById("foodRange");
+    var output3 = document.getElementById("foodinput");
+    output3.innerHTML = slider3.value;
+    slider3.oninput = function() {
+        output3.innerHTML = this.value;
+        document.querySelector('#foodresult').innerHTML = parseInt(30*28*this.value);
+            document.querySelector('#foodresult2').innerHTML = parseInt(30*28*this.value);
+
+    }
+
+
+
+             function setUpTangle () {
+
+            var element = document.getElementById("example");
+
+            var tangle = new Tangle(element, {
+                initialize: function () {
+                    this.bottles = 1;
+                    this.paper=1;
+                    this.food=1;
+                    this.wastePerBottle = 1095;
+                    this.wastePerPaper=3650;
+                    this.wastePerFood=840;
+                },
+                update: function () {
+                    this.waterwaste = this.bottles * this.wastePerBottle;
+                    this.paperwaste= this.paper * this.wastePerPaper;
+                    this.foodwaste = this.food * this.wastePerFood;
+                }
+            });
+        }
+
+     
+</script>
+<style>
+
+#paperinput, #paperresult, #plasticinput, #plasticresult, #foodinput, #foodresult, #waterwaste, #paperwaste, #foodwaste {
+    color:rgb(180,0,0);
+}
+
+#title2, #title3 {
+    margin-left: 40px;
+}
+
+#results {
+
+    margin-left:15%;
+    margin-right:15%;
+}
+button {
+    margin-left: 42.5%;
+    margin-top: 10px;
+    /*width: 105px;*/
+    /*height: 30px;*/
+}
+
+#resultimg {
+    margin-left:38%;
+    margin-right:20%;
+}
+img {
+  margin-top:0px;
+padding: 0 0px 0px 0;
+    /*margin-left:35%;*/
+}
+
+.boxed {
+
+    background-color: rgb(245,245,245);
+    padding-top: 10px;
+    padding-left:20px;
+    padding-bottom:10px;
+    padding-right: 5px;
+}
+
+.left {
+   float: left;
+   padding: 0 0px 0px 0;
+}
+h3 {
+    font-style: Arial;
+   text-align:center;
+   padding-right:10px;
+}
+
+h2 {
+    font-style: Arial;
+    padding-top:7px;
+}
+
+.nyuadfacts{
+    font-family: serif;
+    color: rgb(88,5,140);
+    text-align: center;
+    margin-top:7px;
+    margin-bottom:7px;
+}
+
+.answer {
+   text-align:center;
+   padding-right:15px;
+}
+body
+{
+
+/*background: rgb(190,255,190); 
+*/
+
+}
+
+#menu2 {
+  font-family: Arial;
+  text-align: center;
+  font-size: 12pt;
+  
+}
+
+#menu2 a {
+  color: rgb(0,0,200);
+}
+
+
+h1, #menu {
+    margin-top: 1vmax;
+      text-align: center;
+    font-family: Arial;
+}
+
+
+#slidecontainer {
+    /*width: 50%;  Width of the outside container */
+    /*margin-right: 60px;*/
+    
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: Arial;
+
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+     appearance: none;
+    width: 90%; /* Full-width */
+    margin-left: 30px;
+    height: 30px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
+    background: rgb(88,5,140);; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+
+}</style>
+
+<!--</html>-->
