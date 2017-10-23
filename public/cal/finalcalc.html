@@ -199,7 +199,7 @@ lights & AC
         If you use <b><span data-var="bottles" class="TKAdjustableNumber" data-min="0" data-max="10"> water bottles </span></b> per day, manufacturing your water bottles requires <b><span id="waterwaste" data-var="waterwaste"> liters </span> </b>of water per year.
 
 <br></br>
-       Using <b data-var="paper" class="TKAdjustableNumber" data-min="0" data-max="100"> sheets of A4 paper </b> per day requires  <b id="paperwaste" data-var="paperwaste"> liters </b> of water per year.
+       Using <b data-var="paper" class="TKAdjustableNumber" data-min="0" data-max="100"> sheets of A4 paper </b> per week requires  <b id="paperwaste" data-var="paperwaste"> liters </b> of water per year.
 
         <br></br>
        For <b data-var="food" class="TKAdjustableNumber" data-min="0" data-max="100"> plate(s) </b> of food wasted per week, an average of <b id="foodwaste"data-var="foodwaste"> dirhams </b> is spent on food waste per year. 
@@ -318,7 +318,7 @@ $("#results").hide();
                 },
                 update: function () {
                     this.waterwaste = this.bottles * this.wastePerBottle;
-                    this.paperwaste= this.paper * this.wastePerPaper;
+                    this.paperwaste= this.paper * parseInt(this.wastePerPaper/7);
                     this.foodwaste = this.food * this.wastePerFood;
                 }
             });
